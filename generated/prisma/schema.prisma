@@ -1,0 +1,160 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+  output   = "../generated/prisma"
+}
+
+datasource db {
+  provider = "mysql"
+}
+
+model User {
+  id           BigInt          @id @default(autoincrement())
+  name         String
+  email        String
+  password     String
+  phone        String
+  answeredQuiz Answered_Quiz[]
+  myClass      My_Class[]
+  payment      Payment[]
+}
+
+model Tutor {
+  id         BigInt  @id @default(autoincrement())
+  avatar     String?
+  name       String
+  position   String
+  company    String
+  experience String
+  class      Class[]
+}
+
+model Category_Class {
+  id    BigInt  @id @default(autoincrement())
+  name  String
+  class Class[]
+}
+
+model Class {
+  id              BigInt         @id @default(autoincrement())
+  title           String
+  image           String?
+  description     String
+  tutor           Tutor          @relation(fields: [tutorId], references: [id])
+  tutorId         BigInt
+  categoryClass   Category_Class @relation(fields: [categoryClassId], references: [id])
+  categoryClassId BigInt
+  module          Module[]
+  myClass         My_Class[]
+  order           Order[]
+}
+
+model My_Class {
+  id         BigInt  @id @default(autoincrement())
+  status     Boolean
+  progress   Int
+  totalModul Int
+  totalTime  Int
+  user       User    @relation(fields: [userId], references: [id])
+  userId     BigInt
+  class      Class   @relation(fields: [classId], references: [id])
+  classId    BigInt
+}
+
+model Payment {
+  id           BigInt  @id @default(autoincrement())
+  totalPayment Int
+  totalPrice   Int
+  user         User    @relation(fields: [userId], references: [id])
+  userId       BigInt
+  order        Order[]
+}
+
+model Order {
+  id        BigInt  @id @default(autoincrement())
+  price     Int
+  payment   Payment @relation(fields: [paymentId], references: [id])
+  paymentId BigInt
+  class     Class   @relation(fields: [ClassId], references: [id])
+  ClassId   BigInt
+}
+
+enum ModuleType {
+  video
+  summary
+  quiz
+}
+
+model Module {
+  id      BigInt     @id @default(autoincrement())
+  name    String
+  type    ModuleType @default(video)
+  note    String
+  number  Int
+  class   Class      @relation(fields: [classId], references: [id])
+  classId BigInt
+  video   Video[]
+  summary Summary?
+  quiz    Quiz[]
+}
+
+model Video {
+  id          BigInt @id @default(autoincrement())
+  name        String
+  video_url   String
+  description String
+  module      Module @relation(fields: [moduleId], references: [id])
+  moduleId    BigInt
+}
+
+model Summary {
+  id       BigInt @id @default(autoincrement())
+  title    String
+  content  String
+  module   Module @relation(fields: [moduleId], references: [id])
+  moduleId BigInt @unique
+}
+
+enum QuizType {
+  pretest
+  quiz
+  final_test
+}
+
+model Quiz {
+  id       BigInt      @id @default(autoincrement())
+  name     String
+  type     QuizType
+  module   Module      @relation(fields: [moduleId], references: [id])
+  moduleId BigInt
+  quiz     Quiz_Item[]
+}
+
+model Quiz_Item {
+  id         BigInt        @id @default(autoincrement())
+  question   String
+  quiz       Quiz          @relation(fields: [quizId], references: [id])
+  quizId     BigInt
+  optionQuiz Option_Quiz[]
+}
+
+model Option_Quiz {
+  id           BigInt          @id @default(autoincrement())
+  isCorrect    Boolean
+  quizItem     Quiz_Item       @relation(fields: [quizItemId], references: [id])
+  quizItemId   BigInt
+  answeredQuiz Answered_Quiz[]
+}
+
+model Answered_Quiz {
+  id           BigInt      @id @default(autoincrement())
+  user         User        @relation(fields: [userId], references: [id])
+  userId       BigInt
+  optionQuiz   Option_Quiz @relation(fields: [optionQuizId], references: [id])
+  optionQuizId BigInt
+}
