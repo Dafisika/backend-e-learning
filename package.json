@@ -3,6 +3,7 @@
     "version": "1.0.0",
     "description": "-",
     "main": "index.js",
+    "type": "module",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
         "start": "node src/app.js",
@@ -16,9 +17,11 @@
         "dotenv": "^17.2.3",
         "env": "^0.0.2",
         "express": "^5.2.1",
-        "express-validator": "^7.3.1"
+        "express-validator": "^7.3.1",
+        "multer": "^2.0.2"
     },
     "devDependencies": {
+        "express-list-endpoints": "^7.1.1",
         "nodemon": "^3.1.11",
         "prisma": "^7.3.0"
     }
