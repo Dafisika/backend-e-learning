@@ -1,23 +1,15 @@
 import { body, validationResult } from "express-validator";
 
-export const classValidationRules = [
-    body("title")
-        .isLength({ min: 3 })
-        .withMessage("Nama harus lebih dari 3 karakter"),
-    body("image").optional(),
-    body("description")
-        .isLength({ min: 5 })
-        .withMessage("Harus lebih dari 5 karakter"),
-
-    body("tutorId")
+export const answeredQuizValidationRules = [
+    body("userId")
         .custom(async (id) => {
-            await prisma.tutor.findUnique({ where: { id } });
+            await prisma.user.findUnique({ where: { id } });
         })
         .isNumeric()
         .isLength({ min: 1 }),
-    body("categoryClassId")
+    body("optionQuizId")
         .custom(async (id) => {
-            await prisma.Category_Class.findUnique({ where: { id } });
+            await prisma.Option_Quiz.findUnique({ where: { id } });
         })
         .isNumeric()
         .isLength({ min: 1 }),
@@ -37,4 +29,4 @@ export const validate = (req, res, next) => {
     });
 };
 
-export default { classValidationRules, validate };
+export default { answeredQuizValidationRules, validate };

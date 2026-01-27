@@ -6,12 +6,19 @@ export const myClassValidationRules = [
     body("totalModule").isNumeric().isLength({ min: 3 }),
     body("totalTime").isNumeric().isLength({ min: 3 }),
 
-    body("classId").custom(async (id) => {
-        prisma.class.findUnique({ where: { id } });
-    }),
-    body("userId").custom(async (id) => {
-        prisma.user.findUnique({ where: { id } });
-    }),
+    body("classId")
+        .custom(async (id) => {
+            await prisma.class.findUnique({ where: { id } });
+        })
+        .isNumeric()
+        .isLength({ min: 1 }),
+
+    body("userId")
+        .custom(async (id) => {
+            await prisma.user.findUnique({ where: { id } });
+        })
+        .isNumeric()
+        .isLength({ min: 1 }),
 ];
 
 export const validate = (req, res, next) => {

@@ -9,6 +9,10 @@ import paymentRoutes from "./paymentRoutes.js";
 import orderRoutes from "./orderRoutes.js";
 import moduleRoutes from "./moduleRoutes.js";
 import videoRoutes from "./videoRoutes.js";
+import summaryRoutes from "./summaryRoutes.js";
+import quizRoutes from "./quizRoutes.js";
+import quizItemRoutes from "./quizItemRoutes.js";
+import answeredQuizRoutes from "./answeredQuizRoutes.js";
 
 const router = express.Router();
 
@@ -30,5 +34,13 @@ router.use("/order", orderRoutes);
 router.use("/module", moduleRoutes);
 
 router.use("/video", videoRoutes);
+
+router.use("/summary", summaryRoutes);
+
+router.use("/quiz", quizRoutes);
+
+router.use("/quizItem", quizItemRoutes);
+
+router.use("/answeredQuiz", answeredQuizRoutes);
 
 export default router;

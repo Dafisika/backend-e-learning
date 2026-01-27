@@ -1,51 +1,51 @@
 import prisma from "../../lib/prismaClient.js";
 
-export const getAllModule = async (req, res) => {
+export const getAllQuizItem = async (req, res) => {
     try {
         console.log("endpoint terpanggil");
-        const module = await prisma.module.findMany();
+        const quizItem = await prisma.quiz_Item.findMany();
 
-        if (!module) {
+        if (!quizItem) {
             return res.status(404).json({
                 code: 404,
-                message: "Data module tidak ditemukan",
-                data: module,
+                message: "Data Quiz Item tidak ditemukan",
+                data: quizItem,
             });
         }
         return res.status(200).json({
             code: 200,
-            message: "Data module ditemukan",
-            data: module,
+            message: "Data Quiz Item ditemukan",
+            data: quizItem,
         });
     } catch (err) {
         return res.status(500).json({
             code: 500,
             message: "Terjadi kesalahan " + err.message,
-            data: module,
+            data: quizItem,
         });
     }
 };
 
-export const getModuleById = async (req, res) => {
+export const getQuizItemById = async (req, res) => {
     try {
-        const id = req.params.moduleId;
+        const id = req.params.quizItemId;
         console.log("endpoint terpanggil");
 
-        const module = await prisma.module.findUnique({
+        const quizItem = await prisma.quiz_Item.findUnique({
             where: { id },
         });
 
-        if (!module) {
+        if (!quizItem) {
             return res.status(404).json({
                 code: 404,
-                message: "Data module tidak ditemukan",
-                data: module,
+                message: "Data Quiz Item tidak ditemukan",
+                data: quizItem,
             });
         }
         return res.status(200).json({
             code: 200,
-            message: "Data module ditemukan",
-            data: module,
+            message: "Data Quiz Item ditemukan",
+            data: quizItem,
         });
     } catch (err) {
         return res
@@ -54,53 +54,53 @@ export const getModuleById = async (req, res) => {
     }
 };
 
-export const createModule = async (req, res) => {
+export const createQuizItem = async (req, res) => {
     try {
-        const { name, type, note, number, classId } = req.body;
+        const { question, quizId } = req.body;
 
-        const module = await prisma.module.create({
-            data: { name, type, note, number, classId },
+        const quizItem = await prisma.quiz_Item.create({
+            data: { question, quizId },
         });
 
-        if (!module) {
+        if (!quizItem) {
             return res.status(404).json({
                 code: 404,
-                message: "Data module tidak ditemukan",
-                data: module,
+                message: "Data Quiz Item tidak ditemukan",
+                data: quizItem,
             });
         }
         return res.status(200).json({
             code: 200,
-            message: "Data module ditambahkan",
-            data: module,
+            message: "Data Quiz Item ditambahkan",
+            data: quizItem,
         });
     } catch (err) {
         res.status(500).json({ error: "Terjadi kesalahan " + err.message });
     }
 };
 
-export const updateModule = async (req, res) => {
+export const updateQuizItem = async (req, res) => {
     try {
-        const id = req.params.moduleId;
-        const { name, type, note, number, classId } = req.body;
+        const id = req.params.quizItemId;
+        const { question, quizId } = req.body;
         console.log("endpoint terpanggil");
 
-        const module = await prisma.module.update({
+        const quizItem = await prisma.quiz_Item.update({
             where: { id },
-            data: { name, type, note, number, classId },
+            data: { question, quizId },
         });
 
-        if (!module) {
+        if (!quizItem) {
             return res.status(404).json({
                 code: 404,
-                message: "Data module tidak ditemukan",
-                data: module,
+                message: "Data Quiz Item tidak ditemukan",
+                data: quizItem,
             });
         }
         return res.status(200).json({
             code: 200,
-            message: "Data module diperbaharui",
-            data: module,
+            message: "Data Quiz Item diperbaharui",
+            data: quizItem,
         });
     } catch (err) {
         return res
@@ -109,26 +109,26 @@ export const updateModule = async (req, res) => {
     }
 };
 
-export const deleteModule = async (req, res) => {
+export const deleteQuizItem = async (req, res) => {
     try {
-        const id = req.params.moduleId;
+        const id = req.params.quizItemId;
         console.log("endpoint terpanggil");
 
-        const module = await prisma.module.delete({
+        const quizItem = await prisma.quiz_Item.delete({
             where: { id },
         });
 
-        if (!module) {
+        if (!quizItem) {
             return res.status(404).json({
                 code: 404,
-                message: "Data module tidak ditemukan",
-                data: module,
+                message: "Data Quiz Item tidak ditemukan",
+                data: quizItem,
             });
         }
         return res.status(200).json({
             code: 200,
-            message: "Data module dihapus",
-            data: module,
+            message: "Data Quiz Item dihapus",
+            data: quizItem,
         });
     } catch (err) {
         return res
@@ -138,9 +138,9 @@ export const deleteModule = async (req, res) => {
 };
 
 export default {
-    getAllModule,
-    getModuleById,
-    createModule,
-    updateModule,
-    deleteModule,
+    getAllQuizItem,
+    getQuizItemById,
+    createQuizItem,
+    updateQuizItem,
+    deleteQuizItem,
 };

@@ -1,51 +1,51 @@
 import prisma from "../../lib/prismaClient.js";
 
-export const getAllModule = async (req, res) => {
+export const getAllSummary = async (req, res) => {
     try {
         console.log("endpoint terpanggil");
-        const module = await prisma.module.findMany();
+        const summary = await prisma.summary.findMany();
 
-        if (!module) {
+        if (!summary) {
             return res.status(404).json({
                 code: 404,
-                message: "Data module tidak ditemukan",
-                data: module,
+                message: "Data summary tidak ditemukan",
+                data: summary,
             });
         }
         return res.status(200).json({
             code: 200,
-            message: "Data module ditemukan",
-            data: module,
+            message: "Data summary ditemukan",
+            data: summary,
         });
     } catch (err) {
         return res.status(500).json({
             code: 500,
             message: "Terjadi kesalahan " + err.message,
-            data: module,
+            data: summary,
         });
     }
 };
 
-export const getModuleById = async (req, res) => {
+export const getSummaryById = async (req, res) => {
     try {
-        const id = req.params.moduleId;
+        const id = req.params.summaryId;
         console.log("endpoint terpanggil");
 
-        const module = await prisma.module.findUnique({
+        const summary = await prisma.summary.findUnique({
             where: { id },
         });
 
-        if (!module) {
+        if (!summary) {
             return res.status(404).json({
                 code: 404,
-                message: "Data module tidak ditemukan",
-                data: module,
+                message: "Data summary tidak ditemukan",
+                data: summary,
             });
         }
         return res.status(200).json({
             code: 200,
-            message: "Data module ditemukan",
-            data: module,
+            message: "Data summary ditemukan",
+            data: summary,
         });
     } catch (err) {
         return res
@@ -54,53 +54,53 @@ export const getModuleById = async (req, res) => {
     }
 };
 
-export const createModule = async (req, res) => {
+export const createSummary = async (req, res) => {
     try {
-        const { name, type, note, number, classId } = req.body;
+        const { title, content, moduleId } = req.body;
 
-        const module = await prisma.module.create({
-            data: { name, type, note, number, classId },
+        const summary = await prisma.summary.create({
+            data: { title, content, moduleId },
         });
 
-        if (!module) {
+        if (!summary) {
             return res.status(404).json({
                 code: 404,
-                message: "Data module tidak ditemukan",
-                data: module,
+                message: "Data summary tidak ditemukan",
+                data: summary,
             });
         }
         return res.status(200).json({
             code: 200,
-            message: "Data module ditambahkan",
-            data: module,
+            message: "Data summary ditambahkan",
+            data: summary,
         });
     } catch (err) {
         res.status(500).json({ error: "Terjadi kesalahan " + err.message });
     }
 };
 
-export const updateModule = async (req, res) => {
+export const updateSummary = async (req, res) => {
     try {
-        const id = req.params.moduleId;
-        const { name, type, note, number, classId } = req.body;
+        const id = req.params.summaryId;
+        const { title, content, moduleId } = req.body;
         console.log("endpoint terpanggil");
 
-        const module = await prisma.module.update({
+        const summary = await prisma.summary.update({
             where: { id },
-            data: { name, type, note, number, classId },
+            data: { title, content, moduleId },
         });
 
-        if (!module) {
+        if (!summary) {
             return res.status(404).json({
                 code: 404,
-                message: "Data module tidak ditemukan",
-                data: module,
+                message: "Data summary tidak ditemukan",
+                data: summary,
             });
         }
         return res.status(200).json({
             code: 200,
-            message: "Data module diperbaharui",
-            data: module,
+            message: "Data summary diperbaharui",
+            data: summary,
         });
     } catch (err) {
         return res
@@ -109,26 +109,26 @@ export const updateModule = async (req, res) => {
     }
 };
 
-export const deleteModule = async (req, res) => {
+export const deleteSummary = async (req, res) => {
     try {
-        const id = req.params.moduleId;
+        const id = req.params.summaryId;
         console.log("endpoint terpanggil");
 
-        const module = await prisma.module.delete({
+        const summary = await prisma.summary.delete({
             where: { id },
         });
 
-        if (!module) {
+        if (!summary) {
             return res.status(404).json({
                 code: 404,
-                message: "Data module tidak ditemukan",
-                data: module,
+                message: "Data summary tidak ditemukan",
+                data: summary,
             });
         }
         return res.status(200).json({
             code: 200,
-            message: "Data module dihapus",
-            data: module,
+            message: "Data summary dihapus",
+            data: summary,
         });
     } catch (err) {
         return res
@@ -138,9 +138,9 @@ export const deleteModule = async (req, res) => {
 };
 
 export default {
-    getAllModule,
-    getModuleById,
-    createModule,
-    updateModule,
-    deleteModule,
+    getAllSummary,
+    getSummaryById,
+    createSummary,
+    updateSummary,
+    deleteSummary,
 };
