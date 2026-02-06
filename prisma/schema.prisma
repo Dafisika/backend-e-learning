@@ -19,10 +19,11 @@ model User {
   email String @unique
   password String
   phone String
+  isActive Boolean @default(false)
+  verifyToken String?
   answeredQuiz Answered_Quiz[]
   myClass My_Class[]
   payment Payment[]
-
 }
 
 model Tutor {

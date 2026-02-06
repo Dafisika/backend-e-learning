@@ -1,6 +1,21 @@
 import prisma from "../../lib/prismaClient.js";
 
 export const getAllOrder = async (req, res) => {
+    const { search, category } = req.query;
+
+    const whereSearch = {};
+    const whereCategory = {};
+    if (search) {
+        whereSearch.OR = [
+            { title: { contains: search } },
+            { description: { contains: search } },
+        ];
+    }
+
+    if (category) {
+        whereCategory.categoryClassId = category;
+    }
+
     try {
         console.log("endpoint terpanggil");
         const order = await prisma.order.findMany();

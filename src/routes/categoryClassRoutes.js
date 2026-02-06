@@ -4,19 +4,26 @@ import {
     validate,
 } from "../middlewares/categoryClassValidator.js";
 import categoryClassController from "../controllers/categoryClassController.js";
+import { authenticateToken } from "../middlewares/auth/authenticateToken.js";
 
 const router = express.Router();
 
-router.get("/", categoryClassController.getAllCategoryClass);
-router.get("/:categoryClassId", categoryClassController.getCategoryClassById);
+router.get("/", authenticateToken, categoryClassController.getAllCategoryClass);
+router.get(
+    "/:categoryClassId",
+    authenticateToken,
+    categoryClassController.getCategoryClassById,
+);
 router.post(
     "/",
+    authenticateToken,
     categoryClassValidationRules,
     validate,
     categoryClassController.createCategoryClass,
 );
 router.patch(
     "/:categoryClassId",
+    authenticateToken,
     categoryClassValidationRules,
     validate,
     categoryClassController.updateCategoryClass,

@@ -14,11 +14,15 @@
     "dependencies": {
         "@prisma/adapter-mariadb": "^7.3.0",
         "@prisma/client": "^7.3.0",
+        "bcrypt": "^6.0.0",
         "dotenv": "^17.2.3",
         "env": "^0.0.2",
         "express": "^5.2.1",
         "express-validator": "^7.3.1",
-        "multer": "^2.0.2"
+        "jsonwebtoken": "^9.0.3",
+        "multer": "^2.0.2",
+        "nodemailer": "^8.0.0",
+        "uuid": "^13.0.0"
     },
     "devDependencies": {
         "express-list-endpoints": "^7.1.1",

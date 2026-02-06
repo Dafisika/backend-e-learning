@@ -1,7 +1,7 @@
 import { body, validationResult } from "express-validator";
 import prisma from "../../lib/prismaClient.js";
 
-export const quizValidationRules = [
+export const quizItemValidationRules = [
     body("question")
         .isLength({ min: 3 })
         .withMessage("Harus lebih dari 3 karakter"),
@@ -28,4 +28,4 @@ export const validate = (req, res, next) => {
     });
 };
 
-export default { quizValidationRules, validate };
+export default { quizItemValidationRules, validate };

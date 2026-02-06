@@ -5,7 +5,10 @@ CREATE TABLE `User` (
     `email` VARCHAR(191) NOT NULL,
     `password` VARCHAR(191) NOT NULL,
     `phone` VARCHAR(191) NOT NULL,
+    `isActive` BOOLEAN NOT NULL DEFAULT false,
+    `verifyToken` VARCHAR(191) NULL,
 
+    UNIQUE INDEX `User_email_key`(`email`),
     PRIMARY KEY (`id`)
 ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
@@ -46,7 +49,7 @@ CREATE TABLE `My_Class` (
     `id` BIGINT NOT NULL AUTO_INCREMENT,
     `status` BOOLEAN NOT NULL,
     `progress` INTEGER NOT NULL,
-    `totalModul` INTEGER NOT NULL,
+    `totalModule` INTEGER NOT NULL,
     `totalTime` INTEGER NOT NULL,
     `userId` BIGINT NOT NULL,
     `classId` BIGINT NOT NULL,

@@ -17,6 +17,7 @@ import answeredQuizRoutes from "./answeredQuizRoutes.js";
 const router = express.Router();
 
 router.use("/auth", authRoutes);
+
 router.use("/users", userRoutes);
 
 router.use("/tutor", tutorRoutes);

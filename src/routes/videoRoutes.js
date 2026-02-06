@@ -5,13 +5,15 @@ import {
     validate,
 } from "../middlewares/videoValidator.js";
 import upload from "../../lib/multerConfig.js";
+import { authenticateToken } from "../middlewares/auth/authenticateToken.js";
 
 const router = express.Router();
 
-router.get("/", videoController.getAllVideo);
-router.get("/:videoId", videoController.getVideoById);
+router.get("/", authenticateToken, videoController.getAllVideo);
+router.get("/:videoId", authenticateToken, videoController.getVideoById);
 router.post(
     "/",
+    authenticateToken,
     upload.single("video"),
     videoValidationRules,
     validate,
@@ -19,10 +21,11 @@ router.post(
 );
 router.patch(
     "/:videoId",
+    authenticateToken,
     videoValidationRules,
     validate,
     videoController.updateVideo,
 );
-router.delete("/:videoId", videoController.deleteVideo);
+router.delete("/:videoId", authenticateToken, videoController.deleteVideo);
 
 export default router;

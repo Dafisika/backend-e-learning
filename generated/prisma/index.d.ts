@@ -2313,6 +2313,8 @@ export namespace Prisma {
     email: string | null
     password: string | null
     phone: string | null
+    isActive: boolean | null
+    verifyToken: string | null
   }
 
   export type UserMaxAggregateOutputType = {
@@ -2321,6 +2323,8 @@ export namespace Prisma {
     email: string | null
     password: string | null
     phone: string | null
+    isActive: boolean | null
+    verifyToken: string | null
   }
 
   export type UserCountAggregateOutputType = {
@@ -2329,6 +2333,8 @@ export namespace Prisma {
     email: number
     password: number
     phone: number
+    isActive: number
+    verifyToken: number
     _all: number
   }
 
@@ -2347,6 +2353,8 @@ export namespace Prisma {
     email?: true
     password?: true
     phone?: true
+    isActive?: true
+    verifyToken?: true
   }
 
   export type UserMaxAggregateInputType = {
@@ -2355,6 +2363,8 @@ export namespace Prisma {
     email?: true
     password?: true
     phone?: true
+    isActive?: true
+    verifyToken?: true
   }
 
   export type UserCountAggregateInputType = {
@@ -2363,6 +2373,8 @@ export namespace Prisma {
     email?: true
     password?: true
     phone?: true
+    isActive?: true
+    verifyToken?: true
     _all?: true
   }
 
@@ -2458,6 +2470,8 @@ export namespace Prisma {
     email: string
     password: string
     phone: string
+    isActive: boolean
+    verifyToken: string | null
     _count: UserCountAggregateOutputType | null
     _avg: UserAvgAggregateOutputType | null
     _sum: UserSumAggregateOutputType | null
@@ -2485,6 +2499,8 @@ export namespace Prisma {
     email?: boolean
     password?: boolean
     phone?: boolean
+    isActive?: boolean
+    verifyToken?: boolean
     answeredQuiz?: boolean | User$answeredQuizArgs<ExtArgs>
     myClass?: boolean | User$myClassArgs<ExtArgs>
     payment?: boolean | User$paymentArgs<ExtArgs>
@@ -2499,9 +2515,11 @@ export namespace Prisma {
     email?: boolean
     password?: boolean
     phone?: boolean
+    isActive?: boolean
+    verifyToken?: boolean
   }
 
-  export type UserOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "email" | "password" | "phone", ExtArgs["result"]["user"]>
+  export type UserOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "email" | "password" | "phone" | "isActive" | "verifyToken", ExtArgs["result"]["user"]>
   export type UserInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     answeredQuiz?: boolean | User$answeredQuizArgs<ExtArgs>
     myClass?: boolean | User$myClassArgs<ExtArgs>
@@ -2522,6 +2540,8 @@ export namespace Prisma {
       email: string
       password: string
       phone: string
+      isActive: boolean
+      verifyToken: string | null
     }, ExtArgs["result"]["user"]>
     composites: {}
   }
@@ -2899,6 +2919,8 @@ export namespace Prisma {
     readonly email: FieldRef<"User", 'String'>
     readonly password: FieldRef<"User", 'String'>
     readonly phone: FieldRef<"User", 'String'>
+    readonly isActive: FieldRef<"User", 'Boolean'>
+    readonly verifyToken: FieldRef<"User", 'String'>
   }
     
 
@@ -6375,7 +6397,7 @@ export namespace Prisma {
   export type My_ClassAvgAggregateOutputType = {
     id: number | null
     progress: number | null
-    totalModul: number | null
+    totalModule: number | null
     totalTime: number | null
     userId: number | null
     classId: number | null
@@ -6384,7 +6406,7 @@ export namespace Prisma {
   export type My_ClassSumAggregateOutputType = {
     id: bigint | null
     progress: number | null
-    totalModul: number | null
+    totalModule: number | null
     totalTime: number | null
     userId: bigint | null
     classId: bigint | null
@@ -6394,7 +6416,7 @@ export namespace Prisma {
     id: bigint | null
     status: boolean | null
     progress: number | null
-    totalModul: number | null
+    totalModule: number | null
     totalTime: number | null
     userId: bigint | null
     classId: bigint | null
@@ -6404,7 +6426,7 @@ export namespace Prisma {
     id: bigint | null
     status: boolean | null
     progress: number | null
-    totalModul: number | null
+    totalModule: number | null
     totalTime: number | null
     userId: bigint | null
     classId: bigint | null
@@ -6414,7 +6436,7 @@ export namespace Prisma {
     id: number
     status: number
     progress: number
-    totalModul: number
+    totalModule: number
     totalTime: number
     userId: number
     classId: number
@@ -6425,7 +6447,7 @@ export namespace Prisma {
   export type My_ClassAvgAggregateInputType = {
     id?: true
     progress?: true
-    totalModul?: true
+    totalModule?: true
     totalTime?: true
     userId?: true
     classId?: true
@@ -6434,7 +6456,7 @@ export namespace Prisma {
   export type My_ClassSumAggregateInputType = {
     id?: true
     progress?: true
-    totalModul?: true
+    totalModule?: true
     totalTime?: true
     userId?: true
     classId?: true
@@ -6444,7 +6466,7 @@ export namespace Prisma {
     id?: true
     status?: true
     progress?: true
-    totalModul?: true
+    totalModule?: true
     totalTime?: true
     userId?: true
     classId?: true
@@ -6454,7 +6476,7 @@ export namespace Prisma {
     id?: true
     status?: true
     progress?: true
-    totalModul?: true
+    totalModule?: true
     totalTime?: true
     userId?: true
     classId?: true
@@ -6464,7 +6486,7 @@ export namespace Prisma {
     id?: true
     status?: true
     progress?: true
-    totalModul?: true
+    totalModule?: true
     totalTime?: true
     userId?: true
     classId?: true
@@ -6561,7 +6583,7 @@ export namespace Prisma {
     id: bigint
     status: boolean
     progress: number
-    totalModul: number
+    totalModule: number
     totalTime: number
     userId: bigint
     classId: bigint
@@ -6590,7 +6612,7 @@ export namespace Prisma {
     id?: boolean
     status?: boolean
     progress?: boolean
-    totalModul?: boolean
+    totalModule?: boolean
     totalTime?: boolean
     userId?: boolean
     classId?: boolean
@@ -6604,13 +6626,13 @@ export namespace Prisma {
     id?: boolean
     status?: boolean
     progress?: boolean
-    totalModul?: boolean
+    totalModule?: boolean
     totalTime?: boolean
     userId?: boolean
     classId?: boolean
   }
 
-  export type My_ClassOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "status" | "progress" | "totalModul" | "totalTime" | "userId" | "classId", ExtArgs["result"]["my_Class"]>
+  export type My_ClassOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "status" | "progress" | "totalModule" | "totalTime" | "userId" | "classId", ExtArgs["result"]["my_Class"]>
   export type My_ClassInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     user?: boolean | UserDefaultArgs<ExtArgs>
     class?: boolean | ClassDefaultArgs<ExtArgs>
@@ -6626,7 +6648,7 @@ export namespace Prisma {
       id: bigint
       status: boolean
       progress: number
-      totalModul: number
+      totalModule: number
       totalTime: number
       userId: bigint
       classId: bigint
@@ -7004,7 +7026,7 @@ export namespace Prisma {
     readonly id: FieldRef<"My_Class", 'BigInt'>
     readonly status: FieldRef<"My_Class", 'Boolean'>
     readonly progress: FieldRef<"My_Class", 'Int'>
-    readonly totalModul: FieldRef<"My_Class", 'Int'>
+    readonly totalModule: FieldRef<"My_Class", 'Int'>
     readonly totalTime: FieldRef<"My_Class", 'Int'>
     readonly userId: FieldRef<"My_Class", 'BigInt'>
     readonly classId: FieldRef<"My_Class", 'BigInt'>
@@ -16225,7 +16247,9 @@ export namespace Prisma {
     name: 'name',
     email: 'email',
     password: 'password',
-    phone: 'phone'
+    phone: 'phone',
+    isActive: 'isActive',
+    verifyToken: 'verifyToken'
   };
 
   export type UserScalarFieldEnum = (typeof UserScalarFieldEnum)[keyof typeof UserScalarFieldEnum]
@@ -16267,7 +16291,7 @@ export namespace Prisma {
     id: 'id',
     status: 'status',
     progress: 'progress',
-    totalModul: 'totalModul',
+    totalModule: 'totalModule',
     totalTime: 'totalTime',
     userId: 'userId',
     classId: 'classId'
@@ -16374,22 +16398,23 @@ export namespace Prisma {
   export type SortOrder = (typeof SortOrder)[keyof typeof SortOrder]
 
 
-  export const UserOrderByRelevanceFieldEnum: {
-    name: 'name',
-    email: 'email',
-    password: 'password',
-    phone: 'phone'
-  };
-
-  export type UserOrderByRelevanceFieldEnum = (typeof UserOrderByRelevanceFieldEnum)[keyof typeof UserOrderByRelevanceFieldEnum]
-
-
   export const NullsOrder: {
     first: 'first',
     last: 'last'
   };
 
   export type NullsOrder = (typeof NullsOrder)[keyof typeof NullsOrder]
+
+
+  export const UserOrderByRelevanceFieldEnum: {
+    name: 'name',
+    email: 'email',
+    password: 'password',
+    phone: 'phone',
+    verifyToken: 'verifyToken'
+  };
+
+  export type UserOrderByRelevanceFieldEnum = (typeof UserOrderByRelevanceFieldEnum)[keyof typeof UserOrderByRelevanceFieldEnum]
 
 
   export const TutorOrderByRelevanceFieldEnum: {
@@ -16524,6 +16549,8 @@ export namespace Prisma {
     email?: StringFilter<"User"> | string
     password?: StringFilter<"User"> | string
     phone?: StringFilter<"User"> | string
+    isActive?: BoolFilter<"User"> | boolean
+    verifyToken?: StringNullableFilter<"User"> | string | null
     answeredQuiz?: Answered_QuizListRelationFilter
     myClass?: My_ClassListRelationFilter
     payment?: PaymentListRelationFilter
@@ -16535,6 +16562,8 @@ export namespace Prisma {
     email?: SortOrder
     password?: SortOrder
     phone?: SortOrder
+    isActive?: SortOrder
+    verifyToken?: SortOrderInput | SortOrder
     answeredQuiz?: Answered_QuizOrderByRelationAggregateInput
     myClass?: My_ClassOrderByRelationAggregateInput
     payment?: PaymentOrderByRelationAggregateInput
@@ -16543,17 +16572,19 @@ export namespace Prisma {
 
   export type UserWhereUniqueInput = Prisma.AtLeast<{
     id?: bigint | number
+    email?: string
     AND?: UserWhereInput | UserWhereInput[]
     OR?: UserWhereInput[]
     NOT?: UserWhereInput | UserWhereInput[]
     name?: StringFilter<"User"> | string
-    email?: StringFilter<"User"> | string
     password?: StringFilter<"User"> | string
     phone?: StringFilter<"User"> | string
+    isActive?: BoolFilter<"User"> | boolean
+    verifyToken?: StringNullableFilter<"User"> | string | null
     answeredQuiz?: Answered_QuizListRelationFilter
     myClass?: My_ClassListRelationFilter
     payment?: PaymentListRelationFilter
-  }, "id">
+  }, "id" | "email">
 
   export type UserOrderByWithAggregationInput = {
     id?: SortOrder
@@ -16561,6 +16592,8 @@ export namespace Prisma {
     email?: SortOrder
     password?: SortOrder
     phone?: SortOrder
+    isActive?: SortOrder
+    verifyToken?: SortOrderInput | SortOrder
     _count?: UserCountOrderByAggregateInput
     _avg?: UserAvgOrderByAggregateInput
     _max?: UserMaxOrderByAggregateInput
@@ -16577,6 +16610,8 @@ export namespace Prisma {
     email?: StringWithAggregatesFilter<"User"> | string
     password?: StringWithAggregatesFilter<"User"> | string
     phone?: StringWithAggregatesFilter<"User"> | string
+    isActive?: BoolWithAggregatesFilter<"User"> | boolean
+    verifyToken?: StringNullableWithAggregatesFilter<"User"> | string | null
   }
 
   export type TutorWhereInput = {
@@ -16767,7 +16802,7 @@ export namespace Prisma {
     id?: BigIntFilter<"My_Class"> | bigint | number
     status?: BoolFilter<"My_Class"> | boolean
     progress?: IntFilter<"My_Class"> | number
-    totalModul?: IntFilter<"My_Class"> | number
+    totalModule?: IntFilter<"My_Class"> | number
     totalTime?: IntFilter<"My_Class"> | number
     userId?: BigIntFilter<"My_Class"> | bigint | number
     classId?: BigIntFilter<"My_Class"> | bigint | number
@@ -16779,7 +16814,7 @@ export namespace Prisma {
     id?: SortOrder
     status?: SortOrder
     progress?: SortOrder
-    totalModul?: SortOrder
+    totalModule?: SortOrder
     totalTime?: SortOrder
     userId?: SortOrder
     classId?: SortOrder
@@ -16794,7 +16829,7 @@ export namespace Prisma {
     NOT?: My_ClassWhereInput | My_ClassWhereInput[]
     status?: BoolFilter<"My_Class"> | boolean
     progress?: IntFilter<"My_Class"> | number
-    totalModul?: IntFilter<"My_Class"> | number
+    totalModule?: IntFilter<"My_Class"> | number
     totalTime?: IntFilter<"My_Class"> | number
     userId?: BigIntFilter<"My_Class"> | bigint | number
     classId?: BigIntFilter<"My_Class"> | bigint | number
@@ -16806,7 +16841,7 @@ export namespace Prisma {
     id?: SortOrder
     status?: SortOrder
     progress?: SortOrder
-    totalModul?: SortOrder
+    totalModule?: SortOrder
     totalTime?: SortOrder
     userId?: SortOrder
     classId?: SortOrder
@@ -16824,7 +16859,7 @@ export namespace Prisma {
     id?: BigIntWithAggregatesFilter<"My_Class"> | bigint | number
     status?: BoolWithAggregatesFilter<"My_Class"> | boolean
     progress?: IntWithAggregatesFilter<"My_Class"> | number
-    totalModul?: IntWithAggregatesFilter<"My_Class"> | number
+    totalModule?: IntWithAggregatesFilter<"My_Class"> | number
     totalTime?: IntWithAggregatesFilter<"My_Class"> | number
     userId?: BigIntWithAggregatesFilter<"My_Class"> | bigint | number
     classId?: BigIntWithAggregatesFilter<"My_Class"> | bigint | number
@@ -17336,6 +17371,8 @@ export namespace Prisma {
     email: string
     password: string
     phone: string
+    isActive?: boolean
+    verifyToken?: string | null
     answeredQuiz?: Answered_QuizCreateNestedManyWithoutUserInput
     myClass?: My_ClassCreateNestedManyWithoutUserInput
     payment?: PaymentCreateNestedManyWithoutUserInput
@@ -17347,6 +17384,8 @@ export namespace Prisma {
     email: string
     password: string
     phone: string
+    isActive?: boolean
+    verifyToken?: string | null
     answeredQuiz?: Answered_QuizUncheckedCreateNestedManyWithoutUserInput
     myClass?: My_ClassUncheckedCreateNestedManyWithoutUserInput
     payment?: PaymentUncheckedCreateNestedManyWithoutUserInput
@@ -17358,6 +17397,8 @@ export namespace Prisma {
     email?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
     phone?: StringFieldUpdateOperationsInput | string
+    isActive?: BoolFieldUpdateOperationsInput | boolean
+    verifyToken?: NullableStringFieldUpdateOperationsInput | string | null
     answeredQuiz?: Answered_QuizUpdateManyWithoutUserNestedInput
     myClass?: My_ClassUpdateManyWithoutUserNestedInput
     payment?: PaymentUpdateManyWithoutUserNestedInput
@@ -17369,6 +17410,8 @@ export namespace Prisma {
     email?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
     phone?: StringFieldUpdateOperationsInput | string
+    isActive?: BoolFieldUpdateOperationsInput | boolean
+    verifyToken?: NullableStringFieldUpdateOperationsInput | string | null
     answeredQuiz?: Answered_QuizUncheckedUpdateManyWithoutUserNestedInput
     myClass?: My_ClassUncheckedUpdateManyWithoutUserNestedInput
     payment?: PaymentUncheckedUpdateManyWithoutUserNestedInput
@@ -17380,6 +17423,8 @@ export namespace Prisma {
     email: string
     password: string
     phone: string
+    isActive?: boolean
+    verifyToken?: string | null
   }
 
   export type UserUpdateManyMutationInput = {
@@ -17388,6 +17433,8 @@ export namespace Prisma {
     email?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
     phone?: StringFieldUpdateOperationsInput | string
+    isActive?: BoolFieldUpdateOperationsInput | boolean
+    verifyToken?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type UserUncheckedUpdateManyInput = {
@@ -17396,6 +17443,8 @@ export namespace Prisma {
     email?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
     phone?: StringFieldUpdateOperationsInput | string
+    isActive?: BoolFieldUpdateOperationsInput | boolean
+    verifyToken?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type TutorCreateInput = {
@@ -17581,7 +17630,7 @@ export namespace Prisma {
     id?: bigint | number
     status: boolean
     progress: number
-    totalModul: number
+    totalModule: number
     totalTime: number
     user: UserCreateNestedOneWithoutMyClassInput
     class: ClassCreateNestedOneWithoutMyClassInput
@@ -17591,7 +17640,7 @@ export namespace Prisma {
     id?: bigint | number
     status: boolean
     progress: number
-    totalModul: number
+    totalModule: number
     totalTime: number
     userId: bigint | number
     classId: bigint | number
@@ -17601,7 +17650,7 @@ export namespace Prisma {
     id?: BigIntFieldUpdateOperationsInput | bigint | number
     status?: BoolFieldUpdateOperationsInput | boolean
     progress?: IntFieldUpdateOperationsInput | number
-    totalModul?: IntFieldUpdateOperationsInput | number
+    totalModule?: IntFieldUpdateOperationsInput | number
     totalTime?: IntFieldUpdateOperationsInput | number
     user?: UserUpdateOneRequiredWithoutMyClassNestedInput
     class?: ClassUpdateOneRequiredWithoutMyClassNestedInput
@@ -17611,7 +17660,7 @@ export namespace Prisma {
     id?: BigIntFieldUpdateOperationsInput | bigint | number
     status?: BoolFieldUpdateOperationsInput | boolean
     progress?: IntFieldUpdateOperationsInput | number
-    totalModul?: IntFieldUpdateOperationsInput | number
+    totalModule?: IntFieldUpdateOperationsInput | number
     totalTime?: IntFieldUpdateOperationsInput | number
     userId?: BigIntFieldUpdateOperationsInput | bigint | number
     classId?: BigIntFieldUpdateOperationsInput | bigint | number
@@ -17621,7 +17670,7 @@ export namespace Prisma {
     id?: bigint | number
     status: boolean
     progress: number
-    totalModul: number
+    totalModule: number
     totalTime: number
     userId: bigint | number
     classId: bigint | number
@@ -17631,7 +17680,7 @@ export namespace Prisma {
     id?: BigIntFieldUpdateOperationsInput | bigint | number
     status?: BoolFieldUpdateOperationsInput | boolean
     progress?: IntFieldUpdateOperationsInput | number
-    totalModul?: IntFieldUpdateOperationsInput | number
+    totalModule?: IntFieldUpdateOperationsInput | number
     totalTime?: IntFieldUpdateOperationsInput | number
   }
 
@@ -17639,7 +17688,7 @@ export namespace Prisma {
     id?: BigIntFieldUpdateOperationsInput | bigint | number
     status?: BoolFieldUpdateOperationsInput | boolean
     progress?: IntFieldUpdateOperationsInput | number
-    totalModul?: IntFieldUpdateOperationsInput | number
+    totalModule?: IntFieldUpdateOperationsInput | number
     totalTime?: IntFieldUpdateOperationsInput | number
     userId?: BigIntFieldUpdateOperationsInput | bigint | number
     classId?: BigIntFieldUpdateOperationsInput | bigint | number
@@ -18129,6 +18178,26 @@ export namespace Prisma {
     not?: NestedStringFilter<$PrismaModel> | string
   }
 
+  export type BoolFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolFilter<$PrismaModel> | boolean
+  }
+
+  export type StringNullableFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel> | null
+    in?: string[] | null
+    notIn?: string[] | null
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    search?: string
+    not?: NestedStringNullableFilter<$PrismaModel> | string | null
+  }
+
   export type Answered_QuizListRelationFilter = {
     every?: Answered_QuizWhereInput
     some?: Answered_QuizWhereInput
@@ -18145,6 +18214,11 @@ export namespace Prisma {
     every?: PaymentWhereInput
     some?: PaymentWhereInput
     none?: PaymentWhereInput
+  }
+
+  export type SortOrderInput = {
+    sort: SortOrder
+    nulls?: NullsOrder
   }
 
   export type Answered_QuizOrderByRelationAggregateInput = {
@@ -18171,6 +18245,8 @@ export namespace Prisma {
     email?: SortOrder
     password?: SortOrder
     phone?: SortOrder
+    isActive?: SortOrder
+    verifyToken?: SortOrder
   }
 
   export type UserAvgOrderByAggregateInput = {
@@ -18183,6 +18259,8 @@ export namespace Prisma {
     email?: SortOrder
     password?: SortOrder
     phone?: SortOrder
+    isActive?: SortOrder
+    verifyToken?: SortOrder
   }
 
   export type UserMinOrderByAggregateInput = {
@@ -18191,6 +18269,8 @@ export namespace Prisma {
     email?: SortOrder
     password?: SortOrder
     phone?: SortOrder
+    isActive?: SortOrder
+    verifyToken?: SortOrder
   }
 
   export type UserSumOrderByAggregateInput = {
@@ -18231,7 +18311,15 @@ export namespace Prisma {
     _max?: NestedStringFilter<$PrismaModel>
   }
 
-  export type StringNullableFilter<$PrismaModel = never> = {
+  export type BoolWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolWithAggregatesFilter<$PrismaModel> | boolean
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedBoolFilter<$PrismaModel>
+    _max?: NestedBoolFilter<$PrismaModel>
+  }
+
+  export type StringNullableWithAggregatesFilter<$PrismaModel = never> = {
     equals?: string | StringFieldRefInput<$PrismaModel> | null
     in?: string[] | null
     notIn?: string[] | null
@@ -18243,18 +18331,16 @@ export namespace Prisma {
     startsWith?: string | StringFieldRefInput<$PrismaModel>
     endsWith?: string | StringFieldRefInput<$PrismaModel>
     search?: string
-    not?: NestedStringNullableFilter<$PrismaModel> | string | null
+    not?: NestedStringNullableWithAggregatesFilter<$PrismaModel> | string | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedStringNullableFilter<$PrismaModel>
+    _max?: NestedStringNullableFilter<$PrismaModel>
   }
 
   export type ClassListRelationFilter = {
     every?: ClassWhereInput
     some?: ClassWhereInput
     none?: ClassWhereInput
-  }
-
-  export type SortOrderInput = {
-    sort: SortOrder
-    nulls?: NullsOrder
   }
 
   export type ClassOrderByRelationAggregateInput = {
@@ -18300,24 +18386,6 @@ export namespace Prisma {
 
   export type TutorSumOrderByAggregateInput = {
     id?: SortOrder
-  }
-
-  export type StringNullableWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: string | StringFieldRefInput<$PrismaModel> | null
-    in?: string[] | null
-    notIn?: string[] | null
-    lt?: string | StringFieldRefInput<$PrismaModel>
-    lte?: string | StringFieldRefInput<$PrismaModel>
-    gt?: string | StringFieldRefInput<$PrismaModel>
-    gte?: string | StringFieldRefInput<$PrismaModel>
-    contains?: string | StringFieldRefInput<$PrismaModel>
-    startsWith?: string | StringFieldRefInput<$PrismaModel>
-    endsWith?: string | StringFieldRefInput<$PrismaModel>
-    search?: string
-    not?: NestedStringNullableWithAggregatesFilter<$PrismaModel> | string | null
-    _count?: NestedIntNullableFilter<$PrismaModel>
-    _min?: NestedStringNullableFilter<$PrismaModel>
-    _max?: NestedStringNullableFilter<$PrismaModel>
   }
 
   export type Category_ClassOrderByRelevanceInput = {
@@ -18424,11 +18492,6 @@ export namespace Prisma {
     categoryClassId?: SortOrder
   }
 
-  export type BoolFilter<$PrismaModel = never> = {
-    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
-    not?: NestedBoolFilter<$PrismaModel> | boolean
-  }
-
   export type IntFilter<$PrismaModel = never> = {
     equals?: number | IntFieldRefInput<$PrismaModel>
     in?: number[]
@@ -18454,7 +18517,7 @@ export namespace Prisma {
     id?: SortOrder
     status?: SortOrder
     progress?: SortOrder
-    totalModul?: SortOrder
+    totalModule?: SortOrder
     totalTime?: SortOrder
     userId?: SortOrder
     classId?: SortOrder
@@ -18463,7 +18526,7 @@ export namespace Prisma {
   export type My_ClassAvgOrderByAggregateInput = {
     id?: SortOrder
     progress?: SortOrder
-    totalModul?: SortOrder
+    totalModule?: SortOrder
     totalTime?: SortOrder
     userId?: SortOrder
     classId?: SortOrder
@@ -18473,7 +18536,7 @@ export namespace Prisma {
     id?: SortOrder
     status?: SortOrder
     progress?: SortOrder
-    totalModul?: SortOrder
+    totalModule?: SortOrder
     totalTime?: SortOrder
     userId?: SortOrder
     classId?: SortOrder
@@ -18483,7 +18546,7 @@ export namespace Prisma {
     id?: SortOrder
     status?: SortOrder
     progress?: SortOrder
-    totalModul?: SortOrder
+    totalModule?: SortOrder
     totalTime?: SortOrder
     userId?: SortOrder
     classId?: SortOrder
@@ -18492,18 +18555,10 @@ export namespace Prisma {
   export type My_ClassSumOrderByAggregateInput = {
     id?: SortOrder
     progress?: SortOrder
-    totalModul?: SortOrder
+    totalModule?: SortOrder
     totalTime?: SortOrder
     userId?: SortOrder
     classId?: SortOrder
-  }
-
-  export type BoolWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
-    not?: NestedBoolWithAggregatesFilter<$PrismaModel> | boolean
-    _count?: NestedIntFilter<$PrismaModel>
-    _min?: NestedBoolFilter<$PrismaModel>
-    _max?: NestedBoolFilter<$PrismaModel>
   }
 
   export type IntWithAggregatesFilter<$PrismaModel = never> = {
@@ -19001,6 +19056,14 @@ export namespace Prisma {
     set?: string
   }
 
+  export type BoolFieldUpdateOperationsInput = {
+    set?: boolean
+  }
+
+  export type NullableStringFieldUpdateOperationsInput = {
+    set?: string | null
+  }
+
   export type Answered_QuizUpdateManyWithoutUserNestedInput = {
     create?: XOR<Answered_QuizCreateWithoutUserInput, Answered_QuizUncheckedCreateWithoutUserInput> | Answered_QuizCreateWithoutUserInput[] | Answered_QuizUncheckedCreateWithoutUserInput[]
     connectOrCreate?: Answered_QuizCreateOrConnectWithoutUserInput | Answered_QuizCreateOrConnectWithoutUserInput[]
@@ -19097,10 +19160,6 @@ export namespace Prisma {
     connectOrCreate?: ClassCreateOrConnectWithoutTutorInput | ClassCreateOrConnectWithoutTutorInput[]
     createMany?: ClassCreateManyTutorInputEnvelope
     connect?: ClassWhereUniqueInput | ClassWhereUniqueInput[]
-  }
-
-  export type NullableStringFieldUpdateOperationsInput = {
-    set?: string | null
   }
 
   export type ClassUpdateManyWithoutTutorNestedInput = {
@@ -19337,10 +19396,6 @@ export namespace Prisma {
     create?: XOR<ClassCreateWithoutMyClassInput, ClassUncheckedCreateWithoutMyClassInput>
     connectOrCreate?: ClassCreateOrConnectWithoutMyClassInput
     connect?: ClassWhereUniqueInput
-  }
-
-  export type BoolFieldUpdateOperationsInput = {
-    set?: boolean
   }
 
   export type IntFieldUpdateOperationsInput = {
@@ -19839,6 +19894,26 @@ export namespace Prisma {
     not?: NestedStringFilter<$PrismaModel> | string
   }
 
+  export type NestedBoolFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolFilter<$PrismaModel> | boolean
+  }
+
+  export type NestedStringNullableFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel> | null
+    in?: string[] | null
+    notIn?: string[] | null
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    search?: string
+    not?: NestedStringNullableFilter<$PrismaModel> | string | null
+  }
+
   export type NestedBigIntWithAggregatesFilter<$PrismaModel = never> = {
     equals?: bigint | number | BigIntFieldRefInput<$PrismaModel>
     in?: bigint[] | number[]
@@ -19895,19 +19970,12 @@ export namespace Prisma {
     _max?: NestedStringFilter<$PrismaModel>
   }
 
-  export type NestedStringNullableFilter<$PrismaModel = never> = {
-    equals?: string | StringFieldRefInput<$PrismaModel> | null
-    in?: string[] | null
-    notIn?: string[] | null
-    lt?: string | StringFieldRefInput<$PrismaModel>
-    lte?: string | StringFieldRefInput<$PrismaModel>
-    gt?: string | StringFieldRefInput<$PrismaModel>
-    gte?: string | StringFieldRefInput<$PrismaModel>
-    contains?: string | StringFieldRefInput<$PrismaModel>
-    startsWith?: string | StringFieldRefInput<$PrismaModel>
-    endsWith?: string | StringFieldRefInput<$PrismaModel>
-    search?: string
-    not?: NestedStringNullableFilter<$PrismaModel> | string | null
+  export type NestedBoolWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolWithAggregatesFilter<$PrismaModel> | boolean
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedBoolFilter<$PrismaModel>
+    _max?: NestedBoolFilter<$PrismaModel>
   }
 
   export type NestedStringNullableWithAggregatesFilter<$PrismaModel = never> = {
@@ -19937,19 +20005,6 @@ export namespace Prisma {
     gt?: number | IntFieldRefInput<$PrismaModel>
     gte?: number | IntFieldRefInput<$PrismaModel>
     not?: NestedIntNullableFilter<$PrismaModel> | number | null
-  }
-
-  export type NestedBoolFilter<$PrismaModel = never> = {
-    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
-    not?: NestedBoolFilter<$PrismaModel> | boolean
-  }
-
-  export type NestedBoolWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
-    not?: NestedBoolWithAggregatesFilter<$PrismaModel> | boolean
-    _count?: NestedIntFilter<$PrismaModel>
-    _min?: NestedBoolFilter<$PrismaModel>
-    _max?: NestedBoolFilter<$PrismaModel>
   }
 
   export type NestedIntWithAggregatesFilter<$PrismaModel = never> = {
@@ -20026,7 +20081,7 @@ export namespace Prisma {
     id?: bigint | number
     status: boolean
     progress: number
-    totalModul: number
+    totalModule: number
     totalTime: number
     class: ClassCreateNestedOneWithoutMyClassInput
   }
@@ -20035,7 +20090,7 @@ export namespace Prisma {
     id?: bigint | number
     status: boolean
     progress: number
-    totalModul: number
+    totalModule: number
     totalTime: number
     classId: bigint | number
   }
@@ -20122,7 +20177,7 @@ export namespace Prisma {
     id?: BigIntFilter<"My_Class"> | bigint | number
     status?: BoolFilter<"My_Class"> | boolean
     progress?: IntFilter<"My_Class"> | number
-    totalModul?: IntFilter<"My_Class"> | number
+    totalModule?: IntFilter<"My_Class"> | number
     totalTime?: IntFilter<"My_Class"> | number
     userId?: BigIntFilter<"My_Class"> | bigint | number
     classId?: BigIntFilter<"My_Class"> | bigint | number
@@ -20336,7 +20391,7 @@ export namespace Prisma {
     id?: bigint | number
     status: boolean
     progress: number
-    totalModul: number
+    totalModule: number
     totalTime: number
     user: UserCreateNestedOneWithoutMyClassInput
   }
@@ -20345,7 +20400,7 @@ export namespace Prisma {
     id?: bigint | number
     status: boolean
     progress: number
-    totalModul: number
+    totalModule: number
     totalTime: number
     userId: bigint | number
   }
@@ -20508,6 +20563,8 @@ export namespace Prisma {
     email: string
     password: string
     phone: string
+    isActive?: boolean
+    verifyToken?: string | null
     answeredQuiz?: Answered_QuizCreateNestedManyWithoutUserInput
     payment?: PaymentCreateNestedManyWithoutUserInput
   }
@@ -20518,6 +20575,8 @@ export namespace Prisma {
     email: string
     password: string
     phone: string
+    isActive?: boolean
+    verifyToken?: string | null
     answeredQuiz?: Answered_QuizUncheckedCreateNestedManyWithoutUserInput
     payment?: PaymentUncheckedCreateNestedManyWithoutUserInput
   }
@@ -20571,6 +20630,8 @@ export namespace Prisma {
     email?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
     phone?: StringFieldUpdateOperationsInput | string
+    isActive?: BoolFieldUpdateOperationsInput | boolean
+    verifyToken?: NullableStringFieldUpdateOperationsInput | string | null
     answeredQuiz?: Answered_QuizUpdateManyWithoutUserNestedInput
     payment?: PaymentUpdateManyWithoutUserNestedInput
   }
@@ -20581,6 +20642,8 @@ export namespace Prisma {
     email?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
     phone?: StringFieldUpdateOperationsInput | string
+    isActive?: BoolFieldUpdateOperationsInput | boolean
+    verifyToken?: NullableStringFieldUpdateOperationsInput | string | null
     answeredQuiz?: Answered_QuizUncheckedUpdateManyWithoutUserNestedInput
     payment?: PaymentUncheckedUpdateManyWithoutUserNestedInput
   }
@@ -20624,6 +20687,8 @@ export namespace Prisma {
     email: string
     password: string
     phone: string
+    isActive?: boolean
+    verifyToken?: string | null
     answeredQuiz?: Answered_QuizCreateNestedManyWithoutUserInput
     myClass?: My_ClassCreateNestedManyWithoutUserInput
   }
@@ -20634,6 +20699,8 @@ export namespace Prisma {
     email: string
     password: string
     phone: string
+    isActive?: boolean
+    verifyToken?: string | null
     answeredQuiz?: Answered_QuizUncheckedCreateNestedManyWithoutUserInput
     myClass?: My_ClassUncheckedCreateNestedManyWithoutUserInput
   }
@@ -20682,6 +20749,8 @@ export namespace Prisma {
     email?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
     phone?: StringFieldUpdateOperationsInput | string
+    isActive?: BoolFieldUpdateOperationsInput | boolean
+    verifyToken?: NullableStringFieldUpdateOperationsInput | string | null
     answeredQuiz?: Answered_QuizUpdateManyWithoutUserNestedInput
     myClass?: My_ClassUpdateManyWithoutUserNestedInput
   }
@@ -20692,6 +20761,8 @@ export namespace Prisma {
     email?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
     phone?: StringFieldUpdateOperationsInput | string
+    isActive?: BoolFieldUpdateOperationsInput | boolean
+    verifyToken?: NullableStringFieldUpdateOperationsInput | string | null
     answeredQuiz?: Answered_QuizUncheckedUpdateManyWithoutUserNestedInput
     myClass?: My_ClassUncheckedUpdateManyWithoutUserNestedInput
   }
@@ -21417,6 +21488,8 @@ export namespace Prisma {
     email: string
     password: string
     phone: string
+    isActive?: boolean
+    verifyToken?: string | null
     myClass?: My_ClassCreateNestedManyWithoutUserInput
     payment?: PaymentCreateNestedManyWithoutUserInput
   }
@@ -21427,6 +21500,8 @@ export namespace Prisma {
     email: string
     password: string
     phone: string
+    isActive?: boolean
+    verifyToken?: string | null
     myClass?: My_ClassUncheckedCreateNestedManyWithoutUserInput
     payment?: PaymentUncheckedCreateNestedManyWithoutUserInput
   }
@@ -21470,6 +21545,8 @@ export namespace Prisma {
     email?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
     phone?: StringFieldUpdateOperationsInput | string
+    isActive?: BoolFieldUpdateOperationsInput | boolean
+    verifyToken?: NullableStringFieldUpdateOperationsInput | string | null
     myClass?: My_ClassUpdateManyWithoutUserNestedInput
     payment?: PaymentUpdateManyWithoutUserNestedInput
   }
@@ -21480,6 +21557,8 @@ export namespace Prisma {
     email?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
     phone?: StringFieldUpdateOperationsInput | string
+    isActive?: BoolFieldUpdateOperationsInput | boolean
+    verifyToken?: NullableStringFieldUpdateOperationsInput | string | null
     myClass?: My_ClassUncheckedUpdateManyWithoutUserNestedInput
     payment?: PaymentUncheckedUpdateManyWithoutUserNestedInput
   }
@@ -21516,7 +21595,7 @@ export namespace Prisma {
     id?: bigint | number
     status: boolean
     progress: number
-    totalModul: number
+    totalModule: number
     totalTime: number
     classId: bigint | number
   }
@@ -21546,7 +21625,7 @@ export namespace Prisma {
     id?: BigIntFieldUpdateOperationsInput | bigint | number
     status?: BoolFieldUpdateOperationsInput | boolean
     progress?: IntFieldUpdateOperationsInput | number
-    totalModul?: IntFieldUpdateOperationsInput | number
+    totalModule?: IntFieldUpdateOperationsInput | number
     totalTime?: IntFieldUpdateOperationsInput | number
     class?: ClassUpdateOneRequiredWithoutMyClassNestedInput
   }
@@ -21555,7 +21634,7 @@ export namespace Prisma {
     id?: BigIntFieldUpdateOperationsInput | bigint | number
     status?: BoolFieldUpdateOperationsInput | boolean
     progress?: IntFieldUpdateOperationsInput | number
-    totalModul?: IntFieldUpdateOperationsInput | number
+    totalModule?: IntFieldUpdateOperationsInput | number
     totalTime?: IntFieldUpdateOperationsInput | number
     classId?: BigIntFieldUpdateOperationsInput | bigint | number
   }
@@ -21564,7 +21643,7 @@ export namespace Prisma {
     id?: BigIntFieldUpdateOperationsInput | bigint | number
     status?: BoolFieldUpdateOperationsInput | boolean
     progress?: IntFieldUpdateOperationsInput | number
-    totalModul?: IntFieldUpdateOperationsInput | number
+    totalModule?: IntFieldUpdateOperationsInput | number
     totalTime?: IntFieldUpdateOperationsInput | number
     classId?: BigIntFieldUpdateOperationsInput | bigint | number
   }
@@ -21677,7 +21756,7 @@ export namespace Prisma {
     id?: bigint | number
     status: boolean
     progress: number
-    totalModul: number
+    totalModule: number
     totalTime: number
     userId: bigint | number
   }
@@ -21722,7 +21801,7 @@ export namespace Prisma {
     id?: BigIntFieldUpdateOperationsInput | bigint | number
     status?: BoolFieldUpdateOperationsInput | boolean
     progress?: IntFieldUpdateOperationsInput | number
-    totalModul?: IntFieldUpdateOperationsInput | number
+    totalModule?: IntFieldUpdateOperationsInput | number
     totalTime?: IntFieldUpdateOperationsInput | number
     user?: UserUpdateOneRequiredWithoutMyClassNestedInput
   }
@@ -21731,7 +21810,7 @@ export namespace Prisma {
     id?: BigIntFieldUpdateOperationsInput | bigint | number
     status?: BoolFieldUpdateOperationsInput | boolean
     progress?: IntFieldUpdateOperationsInput | number
-    totalModul?: IntFieldUpdateOperationsInput | number
+    totalModule?: IntFieldUpdateOperationsInput | number
     totalTime?: IntFieldUpdateOperationsInput | number
     userId?: BigIntFieldUpdateOperationsInput | bigint | number
   }
@@ -21740,7 +21819,7 @@ export namespace Prisma {
     id?: BigIntFieldUpdateOperationsInput | bigint | number
     status?: BoolFieldUpdateOperationsInput | boolean
     progress?: IntFieldUpdateOperationsInput | number
-    totalModul?: IntFieldUpdateOperationsInput | number
+    totalModule?: IntFieldUpdateOperationsInput | number
     totalTime?: IntFieldUpdateOperationsInput | number
     userId?: BigIntFieldUpdateOperationsInput | bigint | number
   }

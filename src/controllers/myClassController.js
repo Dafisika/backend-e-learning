@@ -1,6 +1,16 @@
 import prisma from "../../lib/prismaClient.js";
 
 export const getAllMyClass = async (req, res) => {
+    const { search } = req.query;
+
+    const whereSearch = {};
+    if (search) {
+        whereSearch.OR = [
+            { title: { contains: search } },
+            { description: { contains: search } },
+        ];
+    }
+
     try {
         console.log("endpoint terpanggil");
         const myClass = await prisma.my_Class.findMany();

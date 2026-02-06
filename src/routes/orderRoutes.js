@@ -4,18 +4,26 @@ import {
     orderValidationRules,
     validate,
 } from "../middlewares/orderValidator.js";
+import { authenticateToken } from "../middlewares/auth/authenticateToken.js";
 
 const router = express.Router();
 
-router.get("/", orderController.getAllOrder);
-router.get("/:orderId", orderController.getOrderById);
-router.post("/", orderValidationRules, validate, orderController.createOrder);
+router.get("/", authenticateToken, orderController.getAllOrder);
+router.get("/:orderId", authenticateToken, orderController.getOrderById);
+router.post(
+    "/",
+    authenticateToken,
+    orderValidationRules,
+    validate,
+    orderController.createOrder,
+);
 router.patch(
     "/:orderId",
+    authenticateToken,
     orderValidationRules,
     validate,
     orderController.updateOrder,
 );
-router.delete("/:orderId", orderController.deleteOrder);
+router.delete("/:orderId", authenticateToken, orderController.deleteOrder);
 
 export default router;

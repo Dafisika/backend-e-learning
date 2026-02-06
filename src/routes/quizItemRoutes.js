@@ -4,23 +4,34 @@ import {
     quizItemValidationRules,
     validate,
 } from "../middlewares/quizItemValidator.js";
+import { authenticateToken } from "../middlewares/auth/authenticateToken.js";
 
 const router = express.Router();
 
-router.get("/", quizItemController.getAllQuizItem);
-router.get("/:quizItemId", quizItemController.getQuizItemById);
+router.get("/", authenticateToken, quizItemController.getAllQuizItem);
+router.get(
+    "/:quizItemId",
+    authenticateToken,
+    quizItemController.getQuizItemById,
+);
 router.post(
     "/",
+    authenticateToken,
     quizItemValidationRules,
     validate,
     quizItemController.createQuizItem,
 );
 router.patch(
     "/:quizItemId",
+    authenticateToken,
     quizItemValidationRules,
     validate,
     quizItemController.updateQuizItem,
 );
-router.delete("/:quizItemId", quizItemController.deleteQuizItem);
+router.delete(
+    "/:quizItemId",
+    authenticateToken,
+    quizItemController.deleteQuizItem,
+);
 
 export default router;

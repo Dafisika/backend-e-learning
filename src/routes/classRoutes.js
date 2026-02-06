@@ -5,13 +5,15 @@ import {
 } from "../middlewares/classValidator.js";
 import upload from "../../lib/multerConfig.js";
 import classController from "../controllers/classController.js";
+import { authenticateToken } from "../middlewares/auth/authenticateToken.js";
 
 const router = express.Router();
 
-router.get("/", classController.getAllClass);
-router.get("/:classId", classController.getClassById);
+router.get("/", authenticateToken, classController.getAllClass);
+router.get("/:classId", authenticateToken, classController.getClassById);
 router.post(
     "/",
+    authenticateToken,
     upload.single("image"),
     classValidationRules,
     validate,
@@ -19,10 +21,11 @@ router.post(
 );
 router.patch(
     "/:classId",
+    authenticateToken,
     classValidationRules,
     validate,
     classController.updateClass,
 );
-router.delete("/:classId", classController.deleteClass);
+router.delete("/:classId", authenticateToken, classController.deleteClass);
 
 export default router;

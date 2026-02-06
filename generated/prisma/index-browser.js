@@ -125,7 +125,9 @@ exports.Prisma.UserScalarFieldEnum = {
   name: 'name',
   email: 'email',
   password: 'password',
-  phone: 'phone'
+  phone: 'phone',
+  isActive: 'isActive',
+  verifyToken: 'verifyToken'
 };
 
 exports.Prisma.TutorScalarFieldEnum = {
@@ -155,7 +157,7 @@ exports.Prisma.My_ClassScalarFieldEnum = {
   id: 'id',
   status: 'status',
   progress: 'progress',
-  totalModul: 'totalModul',
+  totalModule: 'totalModule',
   totalTime: 'totalTime',
   userId: 'userId',
   classId: 'classId'
@@ -229,16 +231,17 @@ exports.Prisma.SortOrder = {
   desc: 'desc'
 };
 
+exports.Prisma.NullsOrder = {
+  first: 'first',
+  last: 'last'
+};
+
 exports.Prisma.UserOrderByRelevanceFieldEnum = {
   name: 'name',
   email: 'email',
   password: 'password',
-  phone: 'phone'
-};
-
-exports.Prisma.NullsOrder = {
-  first: 'first',
-  last: 'last'
+  phone: 'phone',
+  verifyToken: 'verifyToken'
 };
 
 exports.Prisma.TutorOrderByRelevanceFieldEnum = {

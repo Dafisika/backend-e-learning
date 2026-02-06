@@ -5,13 +5,15 @@ import {
     validate,
 } from "../middlewares/tutorValidator.js";
 import upload from "../../lib/multerConfig.js";
+import { authenticateToken } from "../middlewares/auth/authenticateToken.js";
 
 const router = express.Router();
 
-router.get("/", tutorController.getAllTutor);
-router.get("/:tutorId", tutorController.getTutorById);
+router.get("/", authenticateToken, tutorController.getAllTutor);
+router.get("/:tutorId", authenticateToken, tutorController.getTutorById);
 router.post(
     "/",
+    authenticateToken,
     upload.single("avatar"),
     tutorValidationRules,
     validate,
@@ -19,10 +21,11 @@ router.post(
 );
 router.patch(
     "/tutorId",
+    authenticateToken,
     tutorValidationRules,
     validate,
     tutorController.updateTutor,
 );
-router.delete("/:tutorId", tutorController.deleteTutor);
+router.delete("/:tutorId", authenticateToken, tutorController.deleteTutor);
 
 export default router;

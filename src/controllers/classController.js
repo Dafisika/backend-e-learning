@@ -1,15 +1,40 @@
+import { response } from "express";
 import prisma from "../../lib/prismaClient.js";
 
 export const getAllClass = async (req, res) => {
+    const { search, category } = req.query;
+
+    const whereSearch = {};
+    const whereCategory = {};
+    if (search) {
+        whereSearch.OR = [
+            { title: { contains: search } },
+            { description: { contains: search } },
+        ];
+    }
+
+    if (category) {
+        whereCategory.categoryClassId = category;
+    }
+
     try {
-        console.log("endpoint terpanggil");
-        const classProduct = await prisma.class.findMany();
+        const classProduct = await prisma.class.findMany({
+            where: {
+                OR: [whereSearch, whereCategory],
+            },
+            orderBy: {
+                title: "asc",
+            },
+            include: {
+                categoryClass: true,
+            },
+        });
 
         if (!classProduct) {
             return res.status(404).json({
                 code: 404,
                 message: "Data class tidak ditemukan",
-                data: classProduct,
+                data: [],
             });
         }
         return res.status(200).json({
@@ -21,7 +46,7 @@ export const getAllClass = async (req, res) => {
         return res.status(500).json({
             code: 500,
             message: "Terjadi kesalahan " + err.message,
-            data: classProduct,
+            data: [],
         });
     }
 };
