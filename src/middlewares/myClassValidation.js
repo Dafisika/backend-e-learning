@@ -1,4 +1,5 @@
 import { body, validationResult } from "express-validator";
+import prisma from "../../lib/prismaClient.js";
 
 export const myClassValidationRules = [
     body("status").isBoolean(),

@@ -1,4 +1,5 @@
 import { body, validationResult } from "express-validator";
+import prisma from "../../lib/prismaClient.js";
 
 export const classValidationRules = [
     body("title")
@@ -17,7 +18,7 @@ export const classValidationRules = [
         .isLength({ min: 1 }),
     body("categoryClassId")
         .custom(async (id) => {
-            await prisma.Category_Class.findUnique({ where: { id } });
+            await prisma.category_Class.findUnique({ where: { id } });
         })
         .isNumeric()
         .isLength({ min: 1 }),
